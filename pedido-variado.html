@@ -105,30 +105,307 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
+    .modal-content {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    
+    .modal-header {
+      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      color: white;
+      border-radius: 20px 20px 0 0;
+      padding: 1.5rem 2rem;
+      border-bottom: none;
+    }
+    
+    .modal-header .btn-close {
+      filter: invert(1);
+      opacity: 0.8;
+    }
+    
+    .modal-body {
+      padding: 2rem;
+    }
+    
+    .modal-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid #e9ecef;
+      border-radius: 0 0 20px 20px;
+    }
+    
+    .form-control {
+      border-radius: 10px;
+      border: 2px solid #e9ecef;
+      padding: 12px 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: #6c4e2f;
+      box-shadow: 0 0 0 0.2rem rgba(108, 78, 47, 0.25);
+    }
+    
+    .form-label {
+      font-weight: 600;
+      color: #4a3c2a;
+      margin-bottom: 8px;
+    }
+    
+    .client-info-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-left: 4px solid #6c4e2f;
+    }
+    
+    /* Professional Print Styles */
+    .print-header {
+      border-bottom: 3px solid #6c4e2f;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .print-company-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    .print-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #6c4e2f;
+    }
+    
+    .print-document-info {
+      text-align: right;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .print-client-section {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    
+    .print-client-title {
+      color: #6c4e2f;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #6c4e2f;
+      padding-bottom: 5px;
+    }
+    
+    .print-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .print-info-item {
+      margin-bottom: 8px;
+    }
+    
+    .print-info-label {
+      font-weight: 600;
+      color: #4a3c2a;
+      display: inline-block;
+      min-width: 80px;
+    }
+    
+    .print-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px 0;
+      font-size: 12px;
+    }
+    
+    .print-table th {
+      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      color: white;
+      padding: 12px 8px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    
+    .print-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .print-table tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+    
+    .print-total-row {
+      background: #fff3cd !important;
+      font-weight: 600;
+      border-top: 2px solid #6c4e2f;
+    }
+    
+    .print-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #dee2e6;
+      font-size: 11px;
+      color: #666;
+    }
+    
+    .print-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 15px;
+    }
+    
+    .print-contact-item {
+      text-align: center;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    
+    .print-summary-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border: 1px solid #2196f3;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    
+    .print-summary-title {
+      color: #1976d2;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
     @media print {
-      body { background: white; margin: 0; padding: 0; }
+      @page {
+        size: letter;
+        margin: 0.5in;
+      }
+      
+      body { 
+        background: white; 
+        margin: 0; 
+        padding: 0; 
+        font-family: 'Arial', sans-serif;
+        color: #000;
+        line-height: 1.3;
+        font-size: 11px;
+      }
+      
       .no-print { display: none !important; }
       .header, .container .row, .summary-card { display: none !important; }
+      
       .order-summary { 
         display: block !important; 
         margin: 0;
-        padding: 20px;
+        padding: 0;
         box-shadow: none;
         border-radius: 0;
+        max-width: none;
+        width: 100%;
+        height: 100vh;
       }
-      .order-summary .text-center h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-      .order-summary .text-center h4 {
-        font-size: 18px;
+      
+      .print-header {
         margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #6c4e2f;
       }
-      .order-summary .mt-4 {
-        margin-top: 20px !important;
+      
+      .print-logo {
+        font-size: 24px;
       }
-      .table {
+      
+      .print-client-section {
+        margin-bottom: 20px;
+        padding: 15px;
+      }
+      
+      .print-client-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+      
+      .print-info-grid {
+        gap: 10px;
+      }
+      
+      .print-info-item {
+        margin-bottom: 6px;
+        font-size: 11px;
+      }
+      
+      .print-summary-box {
+        margin: 15px 0;
+        padding: 12px;
+      }
+      
+      .print-summary-title {
         font-size: 12px;
+        margin-bottom: 8px;
+      }
+      
+      .print-table {
+        margin: 15px 0;
+        font-size: 10px;
+        width: 100%;
+      }
+      
+      .print-table th {
+        padding: 8px 6px;
+        font-size: 9px;
+      }
+      
+      .print-table td {
+        padding: 6px;
+        font-size: 10px;
+      }
+      
+      .print-total-row td {
+        font-size: 12px;
+        padding: 10px 6px;
+      }
+      
+      .print-contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 10px;
+      }
+      
+      .print-contact-item {
+        padding: 8px;
+        font-size: 10px;
+      }
+      
+      .print-footer {
+        margin-top: 20px;
+        padding-top: 15px;
+        font-size: 9px;
+      }
+      
+      /* Optimize space usage */
+      .print-header {
+        page-break-after: avoid;
+      }
+      .print-client-section {
+        page-break-inside: avoid;
+      }
+      .print-table {
+        page-break-inside: avoid;
+      }
+      .print-footer {
+        page-break-before: avoid;
       }
     }
   </style>
@@ -564,48 +841,188 @@
               <small>Pedido mínimo: 100 piezas y $100</small>
             </div>
           </div>
-          <button class="btn btn-generate w-100" onclick="generateOrder()" disabled id="generateBtn">
+          <button class="btn btn-generate w-100" onclick="showClientModal()" disabled id="generateBtn">
             <i class="fas fa-file-alt me-2"></i>Generar Pedido
           </button>
-          <button class="btn btn-success w-100 mt-2 no-print" onclick="printOrder()" style="display: none;" id="printBtn">
-            <i class="fas fa-print me-2"></i>Imprimir Pedido
-          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Info Modal -->
+    <div class="modal fade" id="clientModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><i class="fas fa-user-edit me-2"></i>Información del Cliente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center mb-4">
+              <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+              <p class="text-muted">Complete la siguiente información para procesar su pedido</p>
+            </div>
+            <form id="clientForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-user me-1"></i>Nombre completo *</label>
+                    <input type="text" class="form-control" id="clientName" placeholder="Ingrese su nombre completo" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-phone me-1"></i>Número de celular *</label>
+                    <input type="tel" class="form-control" id="clientPhone" placeholder="Ej: +507 6298-2064" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-envelope me-1"></i>Correo electrónico</label>
+                    <input type="email" class="form-control" id="clientEmail" placeholder="ejemplo@correo.com">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-map-marker-alt me-1"></i>Ubicación de entrega *</label>
+                    <textarea class="form-control" id="clientAddress" rows="3" placeholder="Dirección completa de entrega" required></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-clock me-1"></i>Hora preferida de entrega</label>
+                    <input type="time" class="form-control" id="deliveryTime">
+                    <small class="text-muted">Horario disponible: 6:00 AM - 8:00 PM</small>
+                  </div>
+                </div>
+              </div>
+              <div class="alert alert-info mt-3">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Recordatorio:</strong> Pedido mínimo $100 USD (100 piezas) - Entrega en 1 día hábil
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              <i class="fas fa-times me-1"></i>Cancelar
+            </button>
+            <button type="button" class="btn" style="background: linear-gradient(45deg, #6c4e2f, #4a3c2a); color: white; border: none; padding: 10px 25px; border-radius: 25px; font-weight: 600;" onclick="generateOrder()">
+              <i class="fas fa-check me-1"></i>Generar Pedido
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Order Summary (Hidden, shown when generated) -->
     <div class="order-summary" id="orderSummary">
-      <div class="text-center mb-4">
-        <h2>🥖 Panadería La Delicia</h2>
-        <h4>Pedido Variado</h4>
-        <p>Fecha: <span id="orderDate"></span></p>
+      <!-- Professional Header -->
+      <div class="print-header">
+        <div class="print-company-info">
+          <div>
+            <div class="print-logo">🥖 PANADERÍA LA DELICIA</div>
+            <div style="font-size: 14px; color: #666; margin-top: 5px;">Tradición y sabor en cada mordisco</div>
+            <div style="font-size: 12px; color: #666; margin-top: 3px;">Panamá, Ciudad de Panamá | WhatsApp: +507 6298-2064</div>
+          </div>
+          <div class="print-document-info">
+            <div style="font-weight: 600; font-size: 14px; color: #6c4e2f;">ORDEN DE PEDIDO</div>
+            <div style="margin-top: 5px;">Fecha: <span id="orderDate"></span></div>
+            <div>Pedido #: <span id="orderNumber"></span></div>
+            <div style="margin-top: 5px; font-size: 11px;">Válido por 24 horas</div>
+          </div>
+        </div>
       </div>
-      
-      <table class="table table-bordered">
-        <thead class="table-dark">
+
+      <!-- Client Information Section -->
+      <div class="print-client-section">
+        <div class="print-client-title">📋 INFORMACIÓN DEL CLIENTE</div>
+        <div class="print-info-grid">
+          <div>
+            <div class="print-info-item">
+              <span class="print-info-label">Nombre:</span>
+              <span id="printClientName"></span>
+            </div>
+            <div class="print-info-item">
+              <span class="print-info-label">Teléfono:</span>
+              <span id="printClientPhone"></span>
+            </div>
+            <div class="print-info-item">
+              <span class="print-info-label">Email:</span>
+              <span id="printClientEmail"></span>
+            </div>
+          </div>
+          <div>
+            <div class="print-info-item">
+              <span class="print-info-label">Dirección:</span>
+              <span id="printClientAddress"></span>
+            </div>
+            <div class="print-info-item">
+              <span class="print-info-label">Hora pref.:</span>
+              <span id="printDeliveryTime"></span>
+            </div>
+            <div class="print-info-item">
+              <span class="print-info-label">Entrega:</span>
+              <span>1 día hábil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary Box -->
+      <div class="print-summary-box">
+        <div class="print-summary-title">📊 RESUMEN DEL PEDIDO</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; font-size: 12px;">
+          <div><strong>Total Piezas:</strong> <span id="printTotalPieces"></span></div>
+          <div><strong>Monto Total:</strong> <span id="printTotalAmount"></span></div>
+          <div><strong>Estado:</strong> <span style="color: #28a745; font-weight: 600;">✓ Confirmado</span></div>
+        </div>
+      </div>
+
+      <!-- Products Table -->
+      <table class="print-table">
+        <thead>
           <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio Unit.</th>
-            <th>Subtotal</th>
+            <th style="width: 45%;">PRODUCTO</th>
+            <th style="width: 15%; text-align: center;">CANT.</th>
+            <th style="width: 20%; text-align: right;">PRECIO UNIT.</th>
+            <th style="width: 20%; text-align: right;">SUBTOTAL</th>
           </tr>
         </thead>
         <tbody id="orderItems">
         </tbody>
         <tfoot>
-          <tr class="table-warning">
-            <th colspan="3">TOTAL</th>
-            <th id="orderTotal">$0.00</th>
+          <tr class="print-total-row">
+            <td colspan="3" style="text-align: right; font-weight: 600; font-size: 14px;">TOTAL A PAGAR:</td>
+            <td style="text-align: right; font-weight: 700; font-size: 16px; color: #6c4e2f;" id="orderTotal">$0.00</td>
           </tr>
         </tfoot>
       </table>
-      
-      <div class="mt-4">
-        <h5>Información de Contacto:</h5>
-        <p><strong>WhatsApp:</strong> +507 6298-2064</p>
-        <p><strong>Horario:</strong> Lun-Dom 6:00 AM - 8:00 PM</p>
-        <p><strong>Entrega:</strong> 1 día hábil</p>
+
+      <!-- Terms and Conditions -->
+      <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 5px; padding: 15px; margin: 20px 0; font-size: 11px;">
+        <div style="font-weight: 600; color: #856404; margin-bottom: 8px;">⚠️ TÉRMINOS Y CONDICIONES:</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; color: #856404;">
+          <div>• Pedido mínimo: $100.00 USD</div>
+          <div>• Cantidad mínima: 100 piezas</div>
+          <div>• Tiempo de entrega: 1 día hábil</div>
+          <div>• Horario de pedidos: Oficina</div>
+        </div>
+      </div>
+
+      <!-- Footer with Contact Information -->
+      <div class="print-footer">
+        <div style="text-align: center; font-weight: 600; color: #6c4e2f; margin-bottom: 15px;">📞 INFORMACIÓN DE CONTACTO</div>
+        <div class="print-contact-grid">
+          <div class="print-contact-item">
+            <div style="font-weight: 600; color: #4a3c2a;">📱 WhatsApp</div>
+            <div>+507 6298-2064</div>
+          </div>
+          <div class="print-contact-item">
+            <div style="font-weight: 600; color: #4a3c2a;">🕒 Horarios</div>
+            <div>Lun-Dom 6:00 AM - 8:00 PM</div>
+          </div>
+          <div class="print-contact-item">
+            <div style="font-weight: 600; color: #4a3c2a;">📍 Ubicación</div>
+            <div>Panamá, Ciudad de Panamá</div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #dee2e6; font-size: 10px; color: #999;">
+          © 2025 Panadería La Delicia | Todos los derechos reservados | Documento generado automáticamente
+        </div>
       </div>
     </div>
   </div>
@@ -656,7 +1073,30 @@
       }
     }
 
+    function showClientModal() {
+      const modal = new bootstrap.Modal(document.getElementById('clientModal'));
+      modal.show();
+    }
+
     function generateOrder() {
+      // Validate client form
+      const form = document.getElementById('clientForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Get client info
+      const clientName = document.getElementById('clientName').value;
+      const clientPhone = document.getElementById('clientPhone').value;
+      const clientEmail = document.getElementById('clientEmail').value || 'No proporcionado';
+      const clientAddress = document.getElementById('clientAddress').value;
+      const deliveryTime = document.getElementById('deliveryTime').value || 'No especificada';
+
+      // Close modal
+      const modal = bootstrap.Modal.getInstance(document.getElementById('clientModal'));
+      modal.hide();
+      
       orderData = [];
       let totalAmount = 0;
       
@@ -678,6 +1118,28 @@
         }
       });
       
+      // Generate order number
+      const orderNumber = 'PLD-' + Date.now().toString().slice(-6);
+      let totalPieces = 0;
+      
+      // Calculate total pieces
+      orderData.forEach(item => {
+        totalPieces += item.quantity;
+      });
+      
+      // Populate client info in order summary
+      document.getElementById('printClientName').textContent = clientName;
+      document.getElementById('printClientPhone').textContent = clientPhone;
+      document.getElementById('printClientEmail').textContent = clientEmail;
+      document.getElementById('printClientAddress').textContent = clientAddress;
+      document.getElementById('printDeliveryTime').textContent = deliveryTime;
+      
+      // Populate order info
+      document.getElementById('orderNumber').textContent = orderNumber;
+      document.getElementById('orderDate').textContent = new Date().toLocaleDateString('es-ES');
+      document.getElementById('printTotalPieces').textContent = totalPieces;
+      document.getElementById('printTotalAmount').textContent = '$' + totalAmount.toFixed(2);
+      
       // Populate order summary
       const orderItems = document.getElementById('orderItems');
       orderItems.innerHTML = '';
@@ -685,31 +1147,28 @@
       orderData.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td>${item.product}</td>
-          <td>${item.quantity}</td>
-          <td>$${item.price.toFixed(2)}</td>
-          <td>$${item.subtotal.toFixed(2)}</td>
+          <td style="font-weight: 500;">${item.product}</td>
+          <td style="text-align: center; font-weight: 600;">${item.quantity}</td>
+          <td style="text-align: right;">$${item.price.toFixed(2)}</td>
+          <td style="text-align: right; font-weight: 600;">$${item.subtotal.toFixed(2)}</td>
         `;
         orderItems.appendChild(row);
       });
       
       document.getElementById('orderTotal').textContent = '$' + totalAmount.toFixed(2);
-      document.getElementById('orderDate').textContent = new Date().toLocaleDateString('es-ES');
       
-      // Show order summary and print button
+      // Show order summary
       document.getElementById('orderSummary').style.display = 'block';
-      document.getElementById('printBtn').style.display = 'block';
       
-      // Scroll to summary
-      document.getElementById('orderSummary').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function printOrder() {
-      window.print();
+      // Automatically print the order after a short delay to ensure DOM is updated
+      setTimeout(() => {
+        window.print();
+      }, 500);
     }
 
     // Initialize calculations
     updateCalculations();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
