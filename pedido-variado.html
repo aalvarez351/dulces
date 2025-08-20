@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Pedido Variado - Panadería La Delicia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #fffaf3 0%, #f8f4e6 100%); 
+      color: #4a3c2a; 
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .product-selector {
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .product-selector:hover {
+      transform: translateY(-2px);
+    }
+    
+    .product-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+    .quantity-input {
+      width: 80px;
+      text-align: center;
+      border: 2px solid #6c4e2f;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    
+    .quantity-input:focus {
+      border-color: #ffc107;
+      box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+    }
+    
+    .price-display {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .summary-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 20px;
+    }
+    
+    .btn-generate {
+      background: linear-gradient(45deg, #6c4e2f, #4a3c2a);
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(108, 78, 47, 0.4);
+      color: white;
+    }
+    
+    .order-summary {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    @media print {
+      body { background: white; }
+      .no-print { display: none !important; }
+      .order-summary { display: block !important; }
+      .container { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1><i class="fas fa-shopping-cart me-3"></i>Crear Pedido Variado</h1>
+      <p class="lead">Selecciona los productos y cantidades para tu pedido</p>
+      <p><strong>Pedido mínimo: $100 USD | Cantidad mínima: 100 piezas</strong></p>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h3 class="mb-4">Selecciona tus productos</h3>
+        
+        <!-- Cañon -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/cañol.jpeg" alt="Cañon" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Cañon</h5>
+              <div class="price-display">Mayorista: $0.75 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Cañon" data-price="0.75">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crossant -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/croa.jpeg" alt="Crossant" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Crossant Jamon, queso</h5>
+              <div class="price-display">Mayorista: $0.91 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Crossant Jamon, queso" data-price="0.91">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donas Rellenas -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto4.jpeg" alt="Donas Rellenas" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Donas Rellenas</h5>
+              <div class="price-display">Mayorista: $0.85 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Donas Rellenas" data-price="0.85">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan Guayaba y Queso -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/mill.jpeg" alt="Pan Guayaba y Queso" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan Guayaba y Queso</h5>
+              <div class="price-display">Mayorista: $0.98 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan Guayaba y Queso" data-price="0.98">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Herradura -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto5.jpeg" alt="Herradura" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Herradura</h5>
+              <div class="price-display">Mayorista: $0.85 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Herradura" data-price="0.85">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pinita -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/pinn.jpeg" alt="Pinita" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pinita</h5>
+              <div class="price-display">Mayorista: $0.18 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pinita" data-price="0.18">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mil Hojas -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto6.jpeg" alt="Mil Hojas" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Mil Hojas</h5>
+              <div class="price-display">Mayorista: $0.91 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Mil Hojas" data-price="0.91">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orejas -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto5.jpeg" alt="Orejas" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Orejas</h5>
+              <div class="price-display">Mayorista: $0.77 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Orejas" data-price="0.77">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de Mantequilla -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto2.jpeg" alt="Pan de Mantequilla" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de Mantequilla</h5>
+              <div class="price-display">Mayorista: $0.30 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de Mantequilla" data-price="0.30">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de Queso Mediano -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto3.jpeg" alt="Pan de Queso Mediano" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de Queso Mediano</h5>
+              <div class="price-display">Mayorista: $0.55 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de Queso Mediano" data-price="0.55">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flauta -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/flaut.jpeg" alt="Flauta" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Flauta</h5>
+              <div class="price-display">Mayorista: $0.77 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Flauta" data-price="0.77">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Michita Suave -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto6.jpeg" alt="Michita Suave" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Michita Suave</h5>
+              <div class="price-display">Mayorista: $0.16 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Michita Suave" data-price="0.16">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Michita de Huevo -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto3.jpeg" alt="Michita de Huevo" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Michita de Huevo</h5>
+              <div class="price-display">Mayorista: $0.20 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Michita de Huevo" data-price="0.20">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de Agridulce -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto2.jpeg" alt="Pan de Agridulce" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de Agridulce</h5>
+              <div class="price-display">Mayorista: $0.30 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de Agridulce" data-price="0.30">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de Canela -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto1.jpeg" alt="Pan de Canela" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de Canela</h5>
+              <div class="price-display">Mayorista: $0.65 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de Canela" data-price="0.65">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mamallena -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto4.jpeg" alt="Mamallena" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Mamallena</h5>
+              <div class="price-display">Mayorista: $0.60 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Mamallena" data-price="0.60">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pastelito -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto2.jpeg" alt="Pastelito" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pastelito</h5>
+              <div class="price-display">Mayorista: $0.45 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pastelito" data-price="0.45">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bizcocho -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto6.jpeg" alt="Bizcocho" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Bizcocho</h5>
+              <div class="price-display">Mayorista: $0.50 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Bizcocho" data-price="0.50">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="summary-card">
+          <h4 class="mb-3"><i class="fas fa-calculator me-2"></i>Resumen del Pedido</h4>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Total de piezas:</span>
+              <strong id="totalPieces">0</strong>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="d-flex justify-content-between">
+              <span>Total a pagar:</span>
+              <strong id="totalAmount">$0.00</strong>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="alert alert-info" id="statusAlert">
+              <small>Pedido mínimo: 100 piezas y $100</small>
+            </div>
+          </div>
+          <button class="btn btn-generate w-100" onclick="generateOrder()" disabled id="generateBtn">
+            <i class="fas fa-file-alt me-2"></i>Generar Pedido
+          </button>
+          <button class="btn btn-success w-100 mt-2 no-print" onclick="printOrder()" style="display: none;" id="printBtn">
+            <i class="fas fa-print me-2"></i>Imprimir Pedido
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Summary (Hidden, shown when generated) -->
+    <div class="order-summary" id="orderSummary">
+      <div class="text-center mb-4">
+        <h2>🥖 Panadería La Delicia</h2>
+        <h4>Pedido Variado</h4>
+        <p>Fecha: <span id="orderDate"></span></p>
+      </div>
+      
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unit.</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="orderItems">
+        </tbody>
+        <tfoot>
+          <tr class="table-warning">
+            <th colspan="3">TOTAL</th>
+            <th id="orderTotal">$0.00</th>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <div class="mt-4">
+        <h5>Información de Contacto:</h5>
+        <p><strong>WhatsApp:</strong> +507 6298-2064</p>
+        <p><strong>Horario:</strong> Lun-Dom 6:00 AM - 8:00 PM</p>
+        <p><strong>Entrega:</strong> 1 día hábil</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let orderData = [];
+
+    // Update calculations when quantity changes
+    document.addEventListener('input', function(e) {
+      if (e.target.classList.contains('quantity-input')) {
+        updateCalculations();
+      }
+    });
+
+    function updateCalculations() {
+      let totalPieces = 0;
+      let totalAmount = 0;
+      
+      document.querySelectorAll('.quantity-input').forEach(input => {
+        const quantity = parseInt(input.value) || 0;
+        const price = parseFloat(input.dataset.price);
+        const subtotal = quantity * price;
+        
+        // Update subtotal display
+        const subtotalElement = input.closest('.product-selector').querySelector('.subtotal');
+        subtotalElement.textContent = '$' + subtotal.toFixed(2);
+        
+        totalPieces += quantity;
+        totalAmount += subtotal;
+      });
+      
+      // Update summary
+      document.getElementById('totalPieces').textContent = totalPieces;
+      document.getElementById('totalAmount').textContent = '$' + totalAmount.toFixed(2);
+      
+      // Update status and button
+      const statusAlert = document.getElementById('statusAlert');
+      const generateBtn = document.getElementById('generateBtn');
+      
+      if (totalPieces >= 100 && totalAmount >= 100) {
+        statusAlert.className = 'alert alert-success';
+        statusAlert.innerHTML = '<small><i class="fas fa-check me-1"></i>Pedido válido - Listo para generar</small>';
+        generateBtn.disabled = false;
+      } else {
+        statusAlert.className = 'alert alert-warning';
+        statusAlert.innerHTML = '<small><i class="fas fa-exclamation-triangle me-1"></i>Faltan ' + Math.max(0, 100 - totalPieces) + ' piezas y $' + Math.max(0, 100 - totalAmount).toFixed(2) + '</small>';
+        generateBtn.disabled = true;
+      }
+    }
+
+    function generateOrder() {
+      orderData = [];
+      let totalAmount = 0;
+      
+      document.querySelectorAll('.quantity-input').forEach(input => {
+        const quantity = parseInt(input.value) || 0;
+        if (quantity > 0) {
+          const product = input.dataset.product;
+          const price = parseFloat(input.dataset.price);
+          const subtotal = quantity * price;
+          
+          orderData.push({
+            product: product,
+            quantity: quantity,
+            price: price,
+            subtotal: subtotal
+          });
+          
+          totalAmount += subtotal;
+        }
+      });
+      
+      // Populate order summary
+      const orderItems = document.getElementById('orderItems');
+      orderItems.innerHTML = '';
+      
+      orderData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.product}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${item.subtotal.toFixed(2)}</td>
+        `;
+        orderItems.appendChild(row);
+      });
+      
+      document.getElementById('orderTotal').textContent = '$' + totalAmount.toFixed(2);
+      document.getElementById('orderDate').textContent = new Date().toLocaleDateString('es-ES');
+      
+      // Show order summary and print button
+      document.getElementById('orderSummary').style.display = 'block';
+      document.getElementById('printBtn').style.display = 'block';
+      
+      // Scroll to summary
+      document.getElementById('orderSummary').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function printOrder() {
+      window.print();
+    }
+
+    // Initialize calculations
+    updateCalculations();
+  </script>
+</body>
+</html>
