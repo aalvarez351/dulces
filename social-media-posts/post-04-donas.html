@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post 4 - Donas Rellenas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .post-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(rgba(255,105,180,0.8), rgba(255,20,147,0.8)), url('../img/producto4.jpeg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .donut-icon {
+      font-size: 8rem;
+      margin-bottom: 2rem;
+      animation: rotate 3s infinite linear;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .description {
+      font-size: 2rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+    .price {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #ffff00;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <div class="donut-icon">🍩</div>
+    <h1 class="title">Donas Rellenas</h1>
+    <p class="description">Esponjosas, dulces y rellenas<br>de dulce de leche.<br>¡El antojo perfecto!</p>
+    <div class="price">$1.00</div>
+    <div class="logo">Panadería La Delicia</div>
+  </div>
+</body>
+</html>

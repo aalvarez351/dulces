@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post 2 - Pan de Queso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .post-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/producto2.jpeg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
+    }
+    .header {
+      text-align: center;
+    }
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffc107;
+      margin-bottom: 1rem;
+    }
+    .product-section {
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .product-name {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffc107;
+    }
+    .description {
+      font-size: 1.8rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+    .price {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #ff6b35;
+      margin-bottom: 1rem;
+    }
+    .cta {
+      font-size: 1.5rem;
+      background: #25d366;
+      padding: 15px 30px;
+      border-radius: 25px;
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+    }
+    .cheese-icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-container">
+    <div class="header">
+      <h1 class="logo">Panadería La Delicia</h1>
+    </div>
+    
+    <div class="product-section">
+      <div class="cheese-icon">🧀</div>
+      <h2 class="product-name">Pan de Queso</h2>
+      <p class="description">Crujiente por fuera, suave por dentro.<br>Con queso derretido que te enamorará</p>
+      <div class="price">$1.00</div>
+      <a href="#" class="cta">¡Pídelo por WhatsApp!</a>
+    </div>
+  </div>
+</body>
+</html>
