@@ -97,10 +97,30 @@
     }
     
     @media print {
-      body { background: white; }
+      body { background: white; margin: 0; padding: 0; }
       .no-print { display: none !important; }
-      .order-summary { display: block !important; }
-      .container { max-width: none; }
+      .header, .container .row, .summary-card { display: none !important; }
+      .order-summary { 
+        display: block !important; 
+        margin: 0;
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .order-summary .text-center h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .order-summary .text-center h4 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .order-summary .mt-4 {
+        margin-top: 20px !important;
+      }
+      .table {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
