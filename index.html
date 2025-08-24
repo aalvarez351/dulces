@@ -317,13 +317,129 @@
       font-weight: 600;
     }
     
-    /* Responsive */
+    /* Mobile Responsive Styles */
     @media (max-width: 768px) {
-      header.hero h1 { font-size: 3rem; }
-      .section-title { font-size: 2rem; }
-      .whatsapp-btn { padding: 12px 20px; font-size: 1rem; }
-      .product-card .card-img-top { height: 220px; }
-      .post-preview-card { height: 200px; }
+      header.hero {
+        height: 70vh;
+        padding: 20px;
+      }
+      header.hero h1 { 
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      header.hero .lead {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-title { 
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .product-card {
+        margin-bottom: 2rem;
+      }
+      .product-card .card-img-top { 
+        height: 220px;
+      }
+      .product-card .card-body {
+        padding: 1.2rem;
+      }
+      .product-card .card-title {
+        font-size: 1.1rem;
+      }
+      
+      .whatsapp-btn { 
+        padding: 12px 20px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .info-pedidos-card {
+        padding: 25px;
+        margin: 15px;
+      }
+      
+      .info-item {
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      
+      .info-icon {
+        font-size: 2.5rem;
+      }
+      
+      .post-preview-card { 
+        height: 200px;
+        margin-bottom: 1.5rem;
+      }
+      
+      .testimonial-card {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+      }
+      
+      .contact-form {
+        padding: 2rem;
+        margin: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header.hero {
+        height: 60vh;
+        padding: 15px;
+      }
+      header.hero h1 { 
+        font-size: 2.5rem;
+      }
+      header.hero .lead {
+        font-size: 1rem;
+      }
+      
+      .section-title { 
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      .product-card .card-img-top { 
+        height: 180px;
+      }
+      
+      .info-pedidos-card {
+        padding: 20px;
+        margin: 10px;
+      }
+      
+      .info-item {
+        padding: 12px;
+      }
+      
+      .info-icon {
+        font-size: 2rem;
+      }
+      
+      .whatsapp-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        bottom: 15px;
+        right: 15px;
+      }
+      
+      .contact-form {
+        padding: 1.5rem;
+      }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -650,6 +766,329 @@
             <div class="price-per-100">100 unidades: $30-$60</div>
             <div class="price">$0.30-$0.60</div>
             <a href="https://wa.me/50762982064?text=Hola! Me interesan las Cookies ($0.30-$0.60). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan gusanito de guayaba -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/mill.jpeg" class="card-img-top" alt="Pan gusanito de guayaba">
+          <div class="card-body">
+            <h5 class="card-title">Pan gusanito de guayaba</h5>
+            <p class="card-text">Delicioso pan dulce con sabor a guayaba.</p>
+            <div class="wholesale-price">Precio: $0.20 c/u</div>
+            <div class="price-per-100">100 unidades: $20.00</div>
+            <div class="price">$0.20</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan gusanito de guayaba ($0.20). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan dulce de guayaba -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/mill.jpeg" class="card-img-top" alt="Pan dulce de guayaba">
+          <div class="card-body">
+            <h5 class="card-title">Pan dulce de guayaba</h5>
+            <p class="card-text">Pan tradicional dulce con guayaba.</p>
+            <div class="wholesale-price">Precio: $0.15 c/u</div>
+            <div class="price-per-100">100 unidades: $15.00</div>
+            <div class="price">$0.15</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan dulce de guayaba ($0.15). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan agridulce -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto2.jpeg" class="card-img-top" alt="Pan agridulce">
+          <div class="card-body">
+            <h5 class="card-title">Pan agridulce</h5>
+            <p class="card-text">Pan con sabor agridulce tradicional.</p>
+            <div class="wholesale-price">Precio: $0.15 c/u</div>
+            <div class="price-per-100">100 unidades: $15.00</div>
+            <div class="price">$0.15</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan agridulce ($0.15). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan dulce de manjar -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto4.jpeg" class="card-img-top" alt="Pan dulce de manjar">
+          <div class="card-body">
+            <h5 class="card-title">Pan dulce de manjar</h5>
+            <p class="card-text">Pan dulce relleno de manjar.</p>
+            <div class="wholesale-price">Precio: $0.15 c/u</div>
+            <div class="price-per-100">100 unidades: $15.00</div>
+            <div class="price">$0.15</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan dulce de manjar ($0.15). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan piñita -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/pinn.jpeg" class="card-img-top" alt="Pan piñita">
+          <div class="card-body">
+            <h5 class="card-title">Pan piñita</h5>
+            <p class="card-text">PAQ. DE 6 PAN X $0.65 - Pan con forma de piña.</p>
+            <div class="wholesale-price">Precio: $0.65 c/u</div>
+            <div class="price-per-100">100 unidades: $65.00</div>
+            <div class="price">$0.65</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan piñita ($0.65 - PAQ. DE 6). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan pañuelo de manjar -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto6.jpeg" class="card-img-top" alt="Pan pañuelo de manjar">
+          <div class="card-body">
+            <h5 class="card-title">Pan pañuelo de manjar</h5>
+            <p class="card-text">Pan suave relleno de manjar.</p>
+            <div class="wholesale-price">Precio: $0.40 c/u</div>
+            <div class="price-per-100">100 unidades: $40.00</div>
+            <div class="price">$0.40</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan pañuelo de manjar ($0.40). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan bolita de huevo -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto5.jpeg" class="card-img-top" alt="Pan bolita de huevo">
+          <div class="card-body">
+            <h5 class="card-title">Pan bolita de huevo</h5>
+            <p class="card-text">PAQ. DE 6 PAN X $0.65 - Pan esponjoso con huevo.</p>
+            <div class="wholesale-price">Precio: $0.65 c/u</div>
+            <div class="price-per-100">100 unidades: $65.00</div>
+            <div class="price">$0.65</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan bolita de huevo ($0.65 - PAQ. DE 6). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan de canela -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto2.jpeg" class="card-img-top" alt="Pan de canela">
+          <div class="card-body">
+            <h5 class="card-title">Pan de canela</h5>
+            <p class="card-text">Pan aromático con canela.</p>
+            <div class="wholesale-price">Precio: $0.70 c/u</div>
+            <div class="price-per-100">100 unidades: $70.00</div>
+            <div class="price">$0.70</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan de canela ($0.70). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan de salchicha -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto3.jpeg" class="card-img-top" alt="Pan de salchicha">
+          <div class="card-body">
+            <h5 class="card-title">Pan de salchicha</h5>
+            <p class="card-text">Pan relleno de salchicha.</p>
+            <div class="wholesale-price">Precio: $0.45 c/u</div>
+            <div class="price-per-100">100 unidades: $45.00</div>
+            <div class="price">$0.45</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan de salchicha ($0.45). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan moña con queso -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto6.jpeg" class="card-img-top" alt="Pan moña con queso">
+          <div class="card-body">
+            <h5 class="card-title">Pan moña con queso</h5>
+            <p class="card-text">Pan moña relleno de queso.</p>
+            <div class="wholesale-price">Precio: $0.90 c/u</div>
+            <div class="price-per-100">100 unidades: $90.00</div>
+            <div class="price">$0.90</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan moña con queso ($0.90). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan tortuga de queso -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto3.jpeg" class="card-img-top" alt="Pan tortuga de queso">
+          <div class="card-body">
+            <h5 class="card-title">Pan tortuga de queso</h5>
+            <p class="card-text">Pan con forma de tortuga relleno de queso.</p>
+            <div class="wholesale-price">Precio: $0.75 c/u</div>
+            <div class="price-per-100">100 unidades: $75.00</div>
+            <div class="price">$0.75</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan tortuga de queso ($0.75). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan pizza hawaiana -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto4.jpeg" class="card-img-top" alt="Pan pizza hawaiana">
+          <div class="card-body">
+            <h5 class="card-title">Pan pizza hawaiana</h5>
+            <p class="card-text">Pan pizza con sabor hawaiano.</p>
+            <div class="wholesale-price">Precio: $0.70 c/u</div>
+            <div class="price-per-100">100 unidades: $70.00</div>
+            <div class="price">$0.70</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan pizza hawaiana ($0.70). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan pizza de manjar -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto4.jpeg" class="card-img-top" alt="Pan pizza de manjar">
+          <div class="card-body">
+            <h5 class="card-title">Pan pizza de manjar</h5>
+            <p class="card-text">Pan pizza dulce con manjar.</p>
+            <div class="wholesale-price">Precio: $0.50 c/u</div>
+            <div class="price-per-100">100 unidades: $50.00</div>
+            <div class="price">$0.50</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan pizza de manjar ($0.50). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Flautas -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/flaut.jpeg" class="card-img-top" alt="Flautas">
+          <div class="card-body">
+            <h5 class="card-title">Flautas (pan francés)</h5>
+            <p class="card-text">Pan francés tradicional tipo flauta.</p>
+            <div class="wholesale-price">Precio: $0.50 c/u</div>
+            <div class="price-per-100">100 unidades: $50.00</div>
+            <div class="price">$0.50</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesan las Flautas ($0.50). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Achira -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto2.jpeg" class="card-img-top" alt="Achira">
+          <div class="card-body">
+            <h5 class="card-title">Achira (pan de arena)</h5>
+            <p class="card-text">Pan tradicional tipo achira.</p>
+            <div class="wholesale-price">Precio: $0.13 c/u</div>
+            <div class="price-per-100">100 unidades: $13.00</div>
+            <div class="price">$0.13</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa la Achira ($0.13). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Deditos de queso -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto3.jpeg" class="card-img-top" alt="Deditos de queso">
+          <div class="card-body">
+            <h5 class="card-title">Deditos de queso</h5>
+            <p class="card-text">Pan en forma de deditos relleno de queso.</p>
+            <div class="wholesale-price">Precio: $0.50 c/u</div>
+            <div class="price-per-100">100 unidades: $50.00</div>
+            <div class="price">$0.50</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesan los Deditos de queso ($0.50). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pan cortado de manjar -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto4.jpeg" class="card-img-top" alt="Pan cortado de manjar">
+          <div class="card-body">
+            <h5 class="card-title">Pan cortado de manjar</h5>
+            <p class="card-text">Pan cortado relleno de manjar.</p>
+            <div class="wholesale-price">Precio: $0.70 c/u</div>
+            <div class="price-per-100">100 unidades: $70.00</div>
+            <div class="price">$0.70</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Pan cortado de manjar ($0.70). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Porciones de dulce -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto6.jpeg" class="card-img-top" alt="Porciones de dulce">
+          <div class="card-body">
+            <h5 class="card-title">Porciones de dulce</h5>
+            <p class="card-text">Vainilla, chocolate, vainichocolate.</p>
+            <div class="wholesale-price">Precio: $0.70 c/u</div>
+            <div class="price-per-100">100 unidades: $70.00</div>
+            <div class="price">$0.70</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesan las Porciones de dulce ($0.70). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> Pedir Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ponque -->
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card product-card">
+          <img src="img/producto6.jpeg" class="card-img-top" alt="Ponque">
+          <div class="card-body">
+            <h5 class="card-title">Ponque de vainillachocolate con crema</h5>
+            <p class="card-text">Ponque suave con crema.</p>
+            <div class="wholesale-price">Precio: $0.50 c/u</div>
+            <div class="price-per-100">100 unidades: $50.00</div>
+            <div class="price">$0.50</div>
+            <a href="https://wa.me/50762982064?text=Hola! Me interesa el Ponque ($0.50). Entiendo que el pedido mínimo es de $100 (100 piezas) con entrega de un día para otro." class="order-btn" target="_blank">
               <i class="fab fa-whatsapp"></i> Pedir Ahora
             </a>
           </div>

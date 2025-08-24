@@ -287,6 +287,91 @@
       margin-bottom: 10px;
     }
     
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2.5rem; }
+      .header .lead { font-size: 1.1rem; }
+      
+      .product-selector {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      
+      .product-selector .row {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .product-selector .col-2,
+      .product-selector .col-4,
+      .product-selector .col-3 {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      
+      .product-image {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+      }
+      
+      .quantity-input {
+        width: 100px;
+        margin: 0 auto;
+      }
+      
+      .summary-card {
+        position: static;
+        margin-top: 2rem;
+      }
+      
+      .modal-dialog {
+        margin: 10px;
+      }
+      
+      .print-info-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      
+      .print-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      .header {
+        padding: 1.5rem 0;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .product-selector {
+        padding: 0.8rem;
+      }
+      
+      .btn-generate {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+      
+      .modal-body {
+        padding: 1rem;
+      }
+      
+      .form-control {
+        padding: 10px 12px;
+      }
+    }
+
     @media print {
       @page {
         size: letter;
@@ -1193,6 +1278,248 @@
             </div>
           </div>
         </div>
+
+        <!-- Pan gusanito de guayaba -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/mill.jpeg" alt="Pan gusanito de guayaba" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan gusanito de guayaba</h5>
+              <div class="price-display">Precio: $0.20 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan gusanito de guayaba" data-price="0.20">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan dulce de guayaba -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/mill.jpeg" alt="Pan dulce de guayaba" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan dulce de guayaba</h5>
+              <div class="price-display">Precio: $0.15 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan dulce de guayaba" data-price="0.15">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan agridulce -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto2.jpeg" alt="Pan agridulce" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan agridulce</h5>
+              <div class="price-display">Precio: $0.15 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan agridulce" data-price="0.15">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan dulce de manjar -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto4.jpeg" alt="Pan dulce de manjar" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan dulce de manjar</h5>
+              <div class="price-display">Precio: $0.15 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan dulce de manjar" data-price="0.15">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan piñita -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/pinn.jpeg" alt="Pan piñita" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan piñita</h5>
+              <div class="price-display">Precio: $0.65 c/u - PAQ. DE 6 PAN X 0.65</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan piñita" data-price="0.65">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan pañuelo de manjar -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto6.jpeg" alt="Pan pañuelo de manjar" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan pañuelo de manjar</h5>
+              <div class="price-display">Precio: $0.40 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan pañuelo de manjar" data-price="0.40">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan bolita de huevo -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto5.jpeg" alt="Pan bolita de huevo" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan bolita de huevo</h5>
+              <div class="price-display">Precio: $0.65 c/u - PAQ. DE 6 PAN X 0.65</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan bolita de huevo" data-price="0.65">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de canela -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto2.jpeg" alt="Pan de canela" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de canela</h5>
+              <div class="price-display">Precio: $0.70 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de canela" data-price="0.70">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan de salchicha -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto3.jpeg" alt="Pan de salchicha" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan de salchicha</h5>
+              <div class="price-display">Precio: $0.45 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan de salchicha" data-price="0.45">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan moña con queso -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto6.jpeg" alt="Pan moña con queso" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan moña con queso</h5>
+              <div class="price-display">Precio: $0.90 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan moña con queso" data-price="0.90">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pan tortuga de queso -->
+        <div class="product-selector">
+          <div class="row align-items-center">
+            <div class="col-2">
+              <img src="img/producto3.jpeg" alt="Pan tortuga de queso" class="product-image">
+            </div>
+            <div class="col-4">
+              <h5 class="mb-1">Pan tortuga de queso</h5>
+              <div class="price-display">Precio: $0.75 c/u</div>
+            </div>
+            <div class="col-3">
+              <label class="form-label">Cantidad:</label>
+              <input type="number" class="form-control quantity-input" min="0" value="0" data-product="Pan tortuga de queso" data-price="0.75">
+            </div>
+            <div class="col-3">
+              <div class="text-end">
+                <strong class="subtotal">$0.00</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="col-lg-4">
@@ -1535,11 +1862,21 @@
       
       // Automatically print the order after a short delay to ensure DOM is updated
       setTimeout(() => {
-        window.print();
+        try {
+          window.print();
+          console.log('PDF print dialog opened successfully');
+        } catch (error) {
+          console.error('Error opening print dialog:', error);
+        }
         
         // After printing, send order via WhatsApp
         setTimeout(() => {
-          sendOrderToWhatsApp(clientName, clientPhone, clientAddress, orderData, totalAmount, totalPieces, orderNumber);
+          try {
+            sendOrderToWhatsApp(clientName, clientPhone, clientAddress, orderData, totalAmount, totalPieces, orderNumber);
+            console.log('WhatsApp order sent successfully');
+          } catch (error) {
+            console.error('Error sending WhatsApp order:', error);
+          }
         }, 1000);
       }, 500);
     }
