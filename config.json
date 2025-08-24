@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\aalvarez\\Documents\\panaderia_IVAN\\data"
+      ]
+    }
+  }
+}
