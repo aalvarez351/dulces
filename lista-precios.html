@@ -15,6 +15,20 @@
   <title>Lista de Precios - Panadería La Delicia</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    
+    :root {
+      --primary-gradient: linear-gradient(135deg, #d4a574 0%, #8b4513 100%);
+      --secondary-gradient: linear-gradient(135deg, #f4a261 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #ffd60a 0%, #ffbe0b 100%);
+      --warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --text-primary: #2c3e50;
+      --text-secondary: #5a6c7d;
+      --surface: rgba(255, 255, 255, 0.9);
+    }
+    
     * {
       margin: 0;
       padding: 0;
@@ -43,7 +57,7 @@
       align-items: flex-start;
       margin-bottom: 40px;
       padding-bottom: 20px;
-      border-bottom: 3px solid #6c4e2f;
+      border-bottom: 3px solid var(--text-primary);
     }
     
     .company-info {
@@ -53,7 +67,7 @@
     .company-name {
       font-size: 28px;
       font-weight: 700;
-      color: #6c4e2f;
+      color: var(--text-primary);
       margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
@@ -90,7 +104,7 @@
     .terms-section {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       padding: 25px;
-      border-radius: 12px;
+      border-radius: 17px;
       margin-bottom: 35px;
       border-left: 4px solid #ffc107;
     }
@@ -98,7 +112,7 @@
     .terms-title {
       font-size: 16px;
       font-weight: 600;
-      color: #6c4e2f;
+      color: var(--text-primary);
       margin-bottom: 15px;
       display: flex;
       align-items: center;
@@ -119,7 +133,7 @@
     .term-icon {
       width: 20px;
       height: 20px;
-      background: #6c4e2f;
+      background: var(--text-primary);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -136,12 +150,12 @@
       margin-bottom: 35px;
       font-size: 13px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
+      border-radius: 13px;
       overflow: hidden;
     }
     
     .price-table thead {
-      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 100%);
     }
     
     .price-table th {
@@ -192,16 +206,16 @@
       background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
       color: white;
       padding: 4px 8px;
-      border-radius: 12px;
+      border-radius: 17px;
       font-size: 11px;
       font-weight: 600;
     }
     
     .contact-section {
-      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 100%);
       color: white;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 17px;
       margin-top: 35px;
     }
     
@@ -258,11 +272,11 @@
     }
     
     .print-button {
-      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 100%);
       color: white;
       border: none;
       padding: 12px 24px;
-      border-radius: 8px;
+      border-radius: 13px;
       font-weight: 600;
       cursor: pointer;
       font-size: 14px;
@@ -304,7 +318,7 @@
         <p class="company-tagline">Tradición y sabor en cada mordisco</p>
         <div class="company-details">
           <div>Panamá, Ciudad de Panamá</div>
-          <div>WhatsApp: +507 6298-2064</div>
+          <div>WhatsApp: +507 6266-8350</div>
           <div>Horario: Lun-Dom 6:00 AM - 8:00 PM</div>
         </div>
       </div>
@@ -326,7 +340,7 @@
         </div>
         <div class="term-item">
           <div class="term-icon">#</div>
-          <div><strong>Cantidad Mínima:</strong> 100 piezas</div>
+          <div><strong>Cantidad Mínima:</strong> cualquier cantidad</div>
         </div>
         <div class="term-item">
           <div class="term-icon">🚚</div>
@@ -352,58 +366,58 @@
       <tbody>
         <tr>
           <td class="product-name">Orejas</td>
-          <td class="price-wholesale">$0.60</td>
-          <td class="price-bulk">$60.00</td>
-          <td><span class="margin-badge">67%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Herraduras</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Cañon</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Empanada de pollo</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Empanada de carne</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Empanada de queso crema</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Empanada de manjar</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
           <td class="product-name">Empanada de jamón y queso</td>
-          <td class="price-wholesale">$0.65</td>
-          <td class="price-bulk">$65.00</td>
-          <td><span class="margin-badge">54%</span></td>
+          <td class="price-wholesale">$1.00</td>
+          <td class="price-bulk">$100.00</td>
+          <td><span class="margin-badge">0%</span></td>
           <td>-</td>
         </tr>
         <tr>
@@ -730,7 +744,7 @@
         <div class="contact-item">
           <div class="contact-icon">📱</div>
           <div class="contact-label">WhatsApp</div>
-          <div class="contact-value">+507 6298-2064</div>
+          <div class="contact-value">+507 6266-8350</div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📍</div>
@@ -749,8 +763,8 @@
       <p>© 2025 Panadería La Delicia | Todos los derechos reservados | Lista de precios actualizada - Enero 2025</p>
     </div>
 
-    <div class="no-print" style="text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
-      <h4 style="color: #6c4e2f; margin-bottom: 15px;">📄 Generar PDF</h4>
+    <div class="no-print" style="text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 15px;">
+      <h4 style="color: var(--text-primary); margin-bottom: 15px;">📄 Generar PDF</h4>
       <p style="margin-bottom: 15px; color: #666;">Para descargar esta lista como PDF:</p>
       <ol style="text-align: left; display: inline-block; color: #666; margin-bottom: 20px;">
         <li>Presiona <strong>Ctrl + P</strong> (Windows) o <strong>Cmd + P</strong> (Mac)</li>
@@ -761,7 +775,7 @@
       <button class="print-button" onclick="window.print()" style="margin-center: 10px;">
         🖨️ Imprimir / Guardar PDF
       </button>
-      <button onclick="window.close()" style="background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+      <button onclick="window.close()" style="background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 13px; font-weight: 600; cursor: pointer;">
         ❌ Cerrar
       </button>
     </div>

@@ -15,34 +15,106 @@
   <title>Crear Pedido Variado - Panadería La Delicia</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-gradient: linear-gradient(135deg, #d4a574 0%, #8b4513 100%);
+      --secondary-gradient: linear-gradient(135deg, #f4a261 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #ffd60a 0%, #ffbe0b 100%);
+      --warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      --glass-bg: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --text-primary: #2c3e50;
+      --text-secondary: #5a6c7d;
+      --surface: rgba(255, 255, 255, 0.9);
+    }
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body { 
-      font-family: 'Poppins', sans-serif; 
-      background: linear-gradient(135deg, #fffaf3 0%, #f8f4e6 100%); 
-      color: #4a3c2a; 
-      line-height: 1.6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+      background: linear-gradient(135deg, #d4a574 0%, #8b4513 50%, #f4a261 100%);
+      background-attachment: fixed;
+      color: var(--text-primary); 
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+      pointer-events: none;
+      z-index: -1;
     }
     
     .header {
-      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      background: var(--primary-gradient);
       color: white;
-      padding: 2rem 0;
+      padding: 3rem 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(240, 147, 251, 0.2) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
     }
     
     .product-selector {
-      background: white;
-      border-radius: 15px;
-      padding: 1.5rem;
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
     }
     
     .product-selector:hover {
-      transform: translateY(-2px);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(31, 38, 135, 0.5);
+    }
+    
+    .product-selector::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      border-radius: 20px;
+    }
+    
+    .product-selector:hover::before {
+      opacity: 0.05;
     }
     
     .product-image {
@@ -53,16 +125,22 @@
     }
     
     .quantity-input {
-      width: 80px;
+      width: 90px;
       text-align: center;
-      border: 2px solid #6c4e2f;
-      border-radius: 8px;
+      border: 2px solid rgba(102, 126, 234, 0.3);
+      border-radius: 15px;
       font-weight: 600;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
     
     .quantity-input:focus {
-      border-color: #ffc107;
-      box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+      border-color: #d4a574;
+      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-2px);
     }
     
     .price-display {
@@ -71,28 +149,48 @@
     }
     
     .summary-card {
-      background: white;
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-soft);
       position: sticky;
       top: 20px;
     }
     
     .btn-generate {
-      background: linear-gradient(45deg, #6c4e2f, #4a3c2a);
+      background: var(--warm-gradient);
       border: none;
       color: white;
-      padding: 15px 30px;
-      border-radius: 25px;
+      padding: 18px 35px;
+      border-radius: 50px;
       font-weight: 600;
       font-size: 1.1rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 8px 25px rgba(250, 112, 154, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-generate::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn-generate:hover::before {
+      left: 100%;
     }
     
     .btn-generate:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(108, 78, 47, 0.4);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(250, 112, 154, 0.6);
       color: white;
     }
     
@@ -107,16 +205,32 @@
     
     .modal-content {
       border: none;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      border-radius: 25px;
+      box-shadow: var(--shadow-soft);
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
     }
     
     .modal-header {
-      background: linear-gradient(135deg, #6c4e2f 0%, #4a3c2a 100%);
+      background: var(--primary-gradient);
       color: white;
-      border-radius: 20px 20px 0 0;
-      padding: 1.5rem 2rem;
+      border-radius: 25px 25px 0 0;
+      padding: 2rem 2.5rem;
       border-bottom: none;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .modal-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 10s linear infinite;
     }
     
     .modal-header .btn-close {
@@ -125,31 +239,39 @@
     }
     
     .modal-body {
-      padding: 2rem;
+      padding: 2.5rem;
+      background: var(--surface);
     }
     
     .modal-footer {
-      padding: 1.5rem 2rem;
-      border-top: 1px solid #e9ecef;
-      border-radius: 0 0 20px 20px;
+      padding: 2rem 2.5rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.1);
+      border-radius: 0 0 25px 25px;
+      background: var(--surface);
     }
     
     .form-control {
-      border-radius: 10px;
-      border: 2px solid #e9ecef;
-      padding: 12px 15px;
-      transition: all 0.3s ease;
+      border-radius: 15px;
+      border: 2px solid rgba(102, 126, 234, 0.2);
+      padding: 15px 20px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      font-weight: 400;
     }
     
     .form-control:focus {
-      border-color: #6c4e2f;
-      box-shadow: 0 0 0 0.2rem rgba(108, 78, 47, 0.25);
+      border-color: #d4a574;
+      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-2px);
     }
     
     .form-label {
       font-weight: 600;
-      color: #4a3c2a;
-      margin-bottom: 8px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      font-size: 0.95rem;
     }
     
     .client-info-section {
@@ -415,7 +537,7 @@
     <div class="container">
       <h1><i class="fas fa-shopping-cart me-3"></i>Crear Pedido Variado - ACTUALIZADO</h1>
       <p class="lead">Selecciona los productos y cantidades para tu pedido con precios actualizados</p>
-      <p><strong>Pedido mínimo: $100 USD | Cantidad mínima: 100 piezas</strong></p>
+      <p><strong>Pedido mínimo: $100 USD | Cualquier cantidad</strong></p>
     </div>
   </div>
 
@@ -432,7 +554,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Orejas</h5>
-              <div class="price-display">Precio: $0.60 c/u</div>
+              <div class="price-display">Precio: $1.00 c/u</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -440,7 +562,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -454,7 +576,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Herraduras</h5>
-              <div class="price-display">Precio: $0.65 c/u</div>
+              <div class="price-display">Precio: $1.00 c/u</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -462,7 +584,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -476,7 +598,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Cañon</h5>
-              <div class="price-display">Precio: $0.65 c/u</div>
+              <div class="price-display">Precio: $1.00 c/u</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -484,7 +606,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -498,7 +620,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Empanadas (todas)</h5>
-              <div class="price-display">Precio: $0.65 c/u (pollo, carne, queso crema, manjar, jamón y queso)</div>
+              <div class="price-display">Precio: $1.00 c/u (pollo, carne, queso crema, manjar, jamón y queso)</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -506,7 +628,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -520,7 +642,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan moña</h5>
-              <div class="price-display">Precio: $0.65 c/u - PAQ. DE 3 PAN X 0.65</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 3 PAN X 0.65</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -528,7 +650,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -542,7 +664,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan de mantequilla</h5>
-              <div class="price-display">Precio: $0.65 c/u - PAQ. DE 6 PAN X 0.65</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 6 PAN X 0.65</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -550,7 +672,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -564,7 +686,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan michita</h5>
-              <div class="price-display">Precio: $0.65 c/u - PAQ. DE 6 PAN X 0.65</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 6 PAN X 0.65</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -572,7 +694,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -586,7 +708,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan de queso</h5>
-              <div class="price-display">Precio: $0.90 c/u</div>
+              <div class="price-display">Precio: $1.00 c/u</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -594,7 +716,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -608,7 +730,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Croissants</h5>
-              <div class="price-display">Jamón y queso: $0.75 | Queso: $0.70 | Queso crema: $0.70</div>
+              <div class="price-display">Jamón y queso: $1.00 | Queso: $1.00 | Queso crema: $1.00</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -616,7 +738,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -630,7 +752,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Donas</h5>
-              <div class="price-display">Azucaradas: $0.50 | Rellenas/Glaseadas: $0.55</div>
+              <div class="price-display">Azucaradas: $1.00 | Rellenas/Glaseadas: $1.00</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -638,7 +760,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -652,7 +774,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan mini hot dog</h5>
-              <div class="price-display">Precio: $1.90 c/u - PAQ. DE 10 PAN X 1.90</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 10 PAN X 1.90</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -660,7 +782,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -674,7 +796,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan hamburguesa</h5>
-              <div class="price-display">Precio: $2.10 c/u - PAQ. DE 12 PAN X 2.10</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 12 PAN X 2.10</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -682,7 +804,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -696,7 +818,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Pan hot dog jumbo</h5>
-              <div class="price-display">Precio: $2.50 c/u - PAQ. DE 12 PAN X 2.50</div>
+              <div class="price-display">Precio: $1.00 c/u - PAQ. DE 12 PAN X 2.50</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -704,7 +826,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -718,7 +840,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Galletas variadas</h5>
-              <div class="price-display">Chip chocolate, colores, mantecado, punto rojo: $0.30 | Matrimonio: $0.60</div>
+              <div class="price-display">Chip chocolate, colores, mantecado, punto rojo: $1.00 | Matrimonio: $1.00</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -726,7 +848,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -740,7 +862,7 @@
             </div>
             <div class="col-4">
               <h5 class="mb-1">Cookies</h5>
-              <div class="price-display">Mini cookies: $0.60 (PAQ. 6) | Vainilla: $0.60 | Chocolate: $0.30</div>
+              <div class="price-display">Mini cookies: $1.00 (PAQ. 6) | Vainilla: $1.00 | Chocolate: $1.00</div>
             </div>
             <div class="col-3">
               <label class="form-label">Cantidad:</label>
@@ -748,7 +870,7 @@
             </div>
             <div class="col-3">
               <div class="text-end">
-                <strong class="subtotal">$0.00</strong>
+                <strong class="subtotal">$1.00</strong>
               </div>
             </div>
           </div>
@@ -767,12 +889,12 @@
           <div class="mb-3">
             <div class="d-flex justify-content-between">
               <span>Total a pagar:</span>
-              <strong id="totalAmount">$0.00</strong>
+              <strong id="totalAmount">$1.00</strong>
             </div>
           </div>
           <div class="mb-3">
             <div class="alert alert-info" id="statusAlert">
-              <small>Pedido mínimo: 100 piezas y $100</small>
+              <small>Pedido mínimo: cualquier cantidad y $100</small>
             </div>
           </div>
           <button class="btn btn-generate w-100" onclick="showClientModal()" disabled id="generateBtn">
@@ -804,7 +926,7 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label"><i class="fas fa-phone me-1"></i>Número de celular *</label>
-                    <input type="tel" class="form-control" id="clientPhone" placeholder="Ej: +507 6298-2064" required>
+                    <input type="tel" class="form-control" id="clientPhone" placeholder="Ej: +507 6266-8350" required>
                   </div>
                   <div class="mb-3">
                     <label class="form-label"><i class="fas fa-envelope me-1"></i>Correo electrónico</label>
@@ -825,7 +947,7 @@
               </div>
               <div class="alert alert-info mt-3">
                 <i class="fas fa-info-circle me-2"></i>
-                <strong>Recordatorio:</strong> Pedido mínimo $100 USD (100 piezas) - Entrega en 1 día hábil
+                <strong>Recordatorio:</strong> Pedido mínimo $100 USD (cualquier cantidad) - Entrega en 1 día hábil
               </div>
             </form>
           </div>
@@ -849,7 +971,7 @@
           <div>
             <div class="print-logo">🥖 PANADERÍA LA DELICIA</div>
             <div style="font-size: 14px; color: #666; margin-top: 5px;">Tradición y sabor en cada mordisco</div>
-            <div style="font-size: 12px; color: #666; margin-top: 3px;">Panamá, Ciudad de Panamá | WhatsApp: +507 6298-2064</div>
+            <div style="font-size: 12px; color: #666; margin-top: 3px;">Panamá, Ciudad de Panamá | WhatsApp: +507 6266-8350</div>
           </div>
           <div class="print-document-info">
             <div style="font-weight: 600; font-size: 14px; color: #6c4e2f;">ORDEN DE PEDIDO - ACTUALIZADA</div>
@@ -920,7 +1042,7 @@
         <tfoot>
           <tr class="print-total-row">
             <td colspan="3" style="text-align: right; font-weight: 600; font-size: 14px;">TOTAL A PAGAR:</td>
-            <td style="text-align: right; font-weight: 700; font-size: 16px; color: #6c4e2f;" id="orderTotal">$0.00</td>
+            <td style="text-align: right; font-weight: 700; font-size: 16px; color: #6c4e2f;" id="orderTotal">$1.00</td>
           </tr>
         </tfoot>
       </table>
@@ -929,8 +1051,8 @@
       <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 5px; padding: 15px; margin: 20px 0; font-size: 11px;">
         <div style="font-weight: 600; color: #856404; margin-bottom: 8px;">⚠️ TÉRMINOS Y CONDICIONES:</div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; color: #856404;">
-          <div>• Pedido mínimo: $100.00 USD</div>
-          <div>• Cantidad mínima: 100 piezas</div>
+          <div>• Pedido mínimo: $1.00 USD</div>
+          <div>• Cualquier cantidad</div>
           <div>• Tiempo de entrega: 1 día hábil</div>
           <div>• Horario de pedidos: Oficina</div>
         </div>
@@ -942,7 +1064,7 @@
         <div class="print-contact-grid">
           <div class="print-contact-item">
             <div style="font-weight: 600; color: #4a3c2a;">📱 WhatsApp</div>
-            <div>+507 6298-2064</div>
+            <div>+507 6266-8350</div>
           </div>
           <div class="print-contact-item">
             <div style="font-weight: 600; color: #4a3c2a;">🕒 Horarios</div>
