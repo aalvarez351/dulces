@@ -1536,7 +1536,45 @@
       // Automatically print the order after a short delay to ensure DOM is updated
       setTimeout(() => {
         window.print();
+        
+        // After printing, send order via WhatsApp
+        setTimeout(() => {
+          sendOrderToWhatsApp(clientName, clientPhone, clientAddress, orderData, totalAmount, totalPieces, orderNumber);
+        }, 1000);
       }, 500);
+    }
+
+    // Function to send order to WhatsApp
+    function sendOrderToWhatsApp(clientName, clientPhone, clientAddress, orderData, totalAmount, totalPieces, orderNumber) {
+      // Create order summary text
+      let orderText = `🥖 *NUEVO PEDIDO - PANADERÍA LA DELICIA*\n\n`;
+      orderText += `📋 *Pedido #:* ${orderNumber}\n`;
+      orderText += `📅 *Fecha:* ${new Date().toLocaleDateString('es-ES')}\n\n`;
+      
+      orderText += `👤 *DATOS DEL CLIENTE:*\n`;
+      orderText += `• Nombre: ${clientName}\n`;
+      orderText += `• Teléfono: ${clientPhone}\n`;
+      orderText += `• Dirección: ${clientAddress}\n\n`;
+      
+      orderText += `🛒 *PRODUCTOS PEDIDOS:*\n`;
+      orderData.forEach(item => {
+        orderText += `• ${item.product}: ${item.quantity} unidades x $${item.price.toFixed(2)} = $${item.subtotal.toFixed(2)}\n`;
+      });
+      
+      orderText += `\n💰 *RESUMEN:*\n`;
+      orderText += `• Total piezas: ${totalPieces}\n`;
+      orderText += `• Total a pagar: $${totalAmount.toFixed(2)}\n\n`;
+      
+      orderText += `📄 *PDF generado desde:* https://panaderia.conectandopersonas.life/pedido-variado.html\n\n`;
+      orderText += `⏰ *Entrega:* 1 día hábil\n`;
+      orderText += `✅ *Estado:* Pendiente de confirmación`;
+      
+      // Encode the message for WhatsApp URL
+      const encodedMessage = encodeURIComponent(orderText);
+      const whatsappURL = `https://wa.me/50762982064?text=${encodedMessage}`;
+      
+      // Open WhatsApp in a new window
+      window.open(whatsappURL, '_blank');
     }
 
     // Initialize calculations
